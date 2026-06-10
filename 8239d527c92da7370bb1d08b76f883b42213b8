@@ -1,0 +1,24 @@
+spring.application.name=bibliotech
+server.port=8080
+
+# Recargar plantillas sin reiniciar (dev)
+spring.thymeleaf.cache=false
+
+# MySQL (con variables de entorno + defaults)
+spring.datasource.url=${DB_URL:jdbc:mysql://localhost:3306/bibliotecadb}
+spring.datasource.username=${DB_USERNAME:root}
+spring.datasource.password=${DB_PASSWORD:cambiame_local}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# i18n
+spring.messages.basename=messages
+spring.messages.encoding=UTF-8
+
+# Logs
+logging.level.com.ufide.biblioteca=DEBUG

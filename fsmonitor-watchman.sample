@@ -1,0 +1,65 @@
+package com.ufide.biblioteca.entity;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+/**
+ * Entidad de ejemplo - en el proyecto real ir agregando mas (Lector,
+ * Bibliotecario, Prestamo, Multa, Categoria, Autor, etc).
+ */
+@Entity
+@Table(name = "libro")
+public class Libro {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 200)
+    private String titulo;
+
+    @Column(length = 20)
+    private String isbn;
+
+    @Column(length = 100)
+    private String editorial;
+
+    private Integer anioPublicacion;
+
+    private int ejemplaresTotal;
+
+    private int ejemplaresDisponibles;
+
+    private LocalDate fechaIngreso;
+
+    private boolean activo = true;
+
+    public Libro() {}
+
+    // Getters y setters
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getTitulo() { return titulo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public String getIsbn() { return isbn; }
+    public void setIsbn(String isbn) { this.isbn = isbn; }
+    public String getEditorial() { return editorial; }
+    public void setEditorial(String editorial) { this.editorial = editorial; }
+    public Integer getAnioPublicacion() { return anioPublicacion; }
+    public void setAnioPublicacion(Integer anioPublicacion) { this.anioPublicacion = anioPublicacion; }
+    public int getEjemplaresTotal() { return ejemplaresTotal; }
+    public void setEjemplaresTotal(int ejemplaresTotal) { this.ejemplaresTotal = ejemplaresTotal; }
+    public int getEjemplaresDisponibles() { return ejemplaresDisponibles; }
+    public void setEjemplaresDisponibles(int ejemplaresDisponibles) { this.ejemplaresDisponibles = ejemplaresDisponibles; }
+    public LocalDate getFechaIngreso() { return fechaIngreso; }
+    public void setFechaIngreso(LocalDate fechaIngreso) { this.fechaIngreso = fechaIngreso; }
+    public boolean isActivo() { return activo; }
+    public void setActivo(boolean activo) { this.activo = activo; }
+}

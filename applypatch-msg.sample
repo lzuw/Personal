@@ -1,0 +1,13 @@
+# i18n - English
+app.titulo=BiblioTech
+app.bienvenida=Welcome to BiblioTech
+nav.inicio=Home
+nav.libros=Catalog
+nav.prestamos=Loans
+nav.login=Sign in
+nav.logout=Sign out
+btn.guardar=Save
+btn.cancelar=Cancel
+btn.eliminar=Delete
+btn.editar=Edit
+btn.detalle=View detail

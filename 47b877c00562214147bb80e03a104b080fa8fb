@@ -1,0 +1,134 @@
+# 📚 BiblioTech — Sistema de Gestión de Biblioteca
+
+> **Proyecto Final — Curso SC-403 Desarrollo de Aplicaciones Web y Patrones**
+> Universidad Fidélitas — Cuatrimestre 2025
+
+Aplicación web transaccional para la administración de una biblioteca: catálogo de libros, gestión de socios, control de préstamos y multas por atraso.
+
+## 👥 Integrantes del equipo
+
+| Nombre          | Carné     | Email                    | Usuario GitHub |
+| --------------- | --------- | ------------------------ | -------------- |
+| Juan Pérez      | 202012345 | <juan.perez@ufide.ac.cr> | @juanperez     |
+| María Rodríguez | 202012346 | <maria.rod@ufide.ac.cr>  | @mariarod      |
+| Carlos Jiménez  | 202012347 | <carlos.jim@ufide.ac.cr> | @carlosjim     |
+
+## 🔗 Enlaces importantes
+
+- **Sistema en producción:** <https://bibliotech.onrender.com> *(ejemplo)*
+- **Repositorio:** <https://github.com/equipo/bibliotech>
+- **Documentación completa:** carpeta [`docs/`](./docs)
+- **API REST (Postman):** carpeta [`postman/`](./postman)
+
+## 🛠️ Tecnologías utilizadas
+
+| Capa                | Tecnología                  | Versión |
+| ------------------- | --------------------------- | ------- |
+| Lenguaje            | Java                        | 21      |
+| Framework backend   | Spring Boot                 | 3.3.5   |
+| Persistencia        | Spring Data JPA + Hibernate | 6.x     |
+| Base de datos       | MySQL                       | 8.0     |
+| Motor de plantillas | Thymeleaf                   | 3.x     |
+| Frontend            | Bootstrap 5                 | 5.3     |
+| Seguridad           | Spring Security + BCrypt    | 6.x     |
+| Build               | Maven                       | 3.9+    |
+| Versionado          | Git + GitHub                | —       |
+| Despliegue          | Render.com                  | —       |
+
+## 📂 Estructura del repositorio
+
+```
+bibliotech/
+├── README.md                    ← este archivo
+├── pom.xml                       ← dependencias Maven
+├── .gitignore
+│
+├── docs/                         ← TODA la documentación del proyecto
+│   ├── 01-historias-usuario/    ← historias en formato "Como/Quiero/Para"
+│   ├── 02-prototipo/             ← mockups y wireframes
+│   ├── 03-diagrama-er/           ← diagrama entidad-relación
+│   ├── 04-arquitectura/          ← capas, patrones, componentes
+│   ├── 05-manual-usuario/        ← cómo usar el sistema (usuario final)
+│   ├── 06-manual-tecnico/        ← instalación, deploy, API
+│   ├── 07-informe-ieee/          ← artículo científico IEEE
+│   └── 08-presentacion/          ← slides de la defensa
+│
+├── src/                          ← código fuente Spring Boot
+│   ├── main/
+│   │   ├── java/com/ufide/biblioteca/
+│   │   │   ├── controller/       ← Controllers MVC
+│   │   │   ├── entity/           ← Entidades JPA
+│   │   │   ├── repository/       ← Repositories
+│   │   │   └── service/          ← Lógica de negocio
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       ├── messages.properties     ← i18n español
+│   │       ├── messages_en.properties  ← i18n inglés
+│   │       ├── static/css/             ← CSS personalizado
+│   │       └── templates/              ← plantillas Thymeleaf
+│   └── test/                     ← tests unitarios
+│
+├── database/                     ← scripts SQL
+│   ├── schema.sql                ← creación de tablas
+│   └── seed-data.sql             ← datos de prueba
+│
+├── postman/                      ← colección de pruebas API
+│   └── bibliotech-api.postman_collection.json
+│
+└── assets/                       ← logos, imágenes, recursos varios
+```
+
+## 🚀 Cómo correr el proyecto local
+
+Ver instrucciones detalladas en [`docs/06-manual-tecnico/instalacion.md`](./docs/06-manual-tecnico/instalacion.md).
+
+**Resumen rápido:**
+
+```bash
+# 1. Clonar el repo
+git clone https://github.com/equipo/bibliotech.git
+cd bibliotech
+
+# 2. Crear la BD en MySQL Workbench
+mysql -u root -p < database/schema.sql
+mysql -u root -p bibliotecadb < database/seed-data.sql
+
+# 3. Configurar variables de entorno
+export DB_PASSWORD=tu_password
+
+# 4. Correr
+./mvnw spring-boot:run
+
+# 5. Abrir
+# http://localhost:8080
+```
+
+## 📋 Funcionalidades implementadas
+
+- ✅ Página principal con menú de navegación responsive
+- ✅ Registro y login de usuarios con Spring Security
+- ✅ Roles: ADMIN, BIBLIOTECARIO, LECTOR
+- ✅ CRUD de Libros, Autores, Categorías y Socios
+- ✅ Módulo transaccional: registro y seguimiento de Préstamos
+- ✅ Cálculo automático de multas por atraso en la devolución
+- ✅ API REST con endpoints `/api/libros` y `/api/prestamos`
+- ✅ Internacionalización: español e inglés
+- ✅ Diseño responsive con Bootstrap 5
+- ✅ Despliegue en Render.com
+
+## 📊 Estado del proyecto
+
+| Entrega                          | Semana | Estado        | Documentación                                       |
+| -------------------------------- | ------ | ------------- | --------------------------------------------------- |
+| Avance 1 — Historias + Prototipo | 5      | ✅ Entregado   | [`docs/01-historias-usuario/`](./docs/01-historias-usuario) |
+| Avance 2 — 50% del proyecto      | 9      | ✅ Entregado   | [`docs/06-manual-tecnico/`](./docs/06-manual-tecnico)       |
+| Avance 3 — Informe IEEE          | 14     | ⏳ En progreso | [`docs/07-informe-ieee/`](./docs/07-informe-ieee)           |
+| Avance 4 — Entrega Final         | 14     | ⏳ Próximo     | —                                                   |
+
+## 📜 Licencia
+
+Este proyecto fue desarrollado con fines académicos para el curso SC-403.
+
+---
+
+*Universidad Fidélitas — Escuela de Informática — Cuatrimestre 2025*

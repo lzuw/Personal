@@ -1,0 +1,34 @@
+package com.ufide.biblioteca.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ufide.biblioteca.service.LibroService;
+
+/**
+ * Ejemplo minimo de Controller que usa el Service.
+ * En el proyecto real este controller tendria CRUD completo (Create/Update/Delete).
+ */
+@Controller
+@RequestMapping("/libros")
+public class LibroController {
+
+    @Autowired
+    private LibroService service;
+
+    @GetMapping
+    public String listar(Model modelo) {
+        modelo.addAttribute("libros", service.listarTodos());
+        return "libros/lista";
+    }
+
+    @GetMapping("/{id}")
+    public String detalle(Model modelo, @PathVariable Long id) {
+        modelo.addAttribute("libro", service.buscarPorId(id).orElse(null));
+        return "libros/detalle";
+    }
+}
